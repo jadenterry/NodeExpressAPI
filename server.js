@@ -27,6 +27,9 @@ router.get('/', function(req, res) {
 // middleware to use for all requests
 router.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     console.log('Something is happening.');
     next(); // make sure we go to the next routes and don't stop here
@@ -40,7 +43,7 @@ router.route('/todos')
 
             res.json(todos);
         });
-    })
+    }) 
 
     .post(function(req, res){
         var todo = new Todo();
@@ -64,7 +67,7 @@ router.route('/todos/:id')
             todo.save(function(err){
                 if(err) 
                     res.send(err);
-                res.json({message: 'todo was updated'});
+                res.json({message: 'todo was updated.'});
             });
         });
     })
