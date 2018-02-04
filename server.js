@@ -53,7 +53,11 @@ router.route('/todos')
         todo.save(function(err){
             if(err) 
                 res.status(500).send(err);
-            res.json({message: 'todo was created'});
+            Todo.find(function(err, todos){
+                if(err)
+                    res.status(500).send(err);
+                res.json(todos);
+            })
         });
     });
 
@@ -67,7 +71,11 @@ router.route('/todos/:id')
             todo.save(function(err){
                 if(err) 
                     res.send(err);
-                res.json({message: 'todo was updated.'});
+                Todo.find(function(err, todos){
+                    if(err)
+                        res.status(500).send(err);
+                    res.json(todos);
+                })
             });
         });
     })
@@ -78,7 +86,11 @@ router.route('/todos/:id')
         }, function(err, todo){
             if(err)
                 res.status(500).send(err);
-            res.json({message: 'todo has been deleted'});
+            Todo.find(function(err, todos){
+                if(err)
+                    res.status(500).send(err);
+                res.json(todos);
+            })
         })
     })
 
