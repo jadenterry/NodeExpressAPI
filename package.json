@@ -5,12 +5,12 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "body-parser": "~1.0.1",
-    "express": "~4.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "mongodb": "^3.0.2",
     "mongoose": "^5"
   },
   "devDependencies": {
-    "nodemon": "^1.14.12"
+    "nodemon": "^1.18.9"
   }
 }
